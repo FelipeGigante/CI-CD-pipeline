@@ -15,6 +15,6 @@ jobs:
         with:
           host: ${{ secrets.VM_HOST }}
           username: felipeg
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.VM_SSH_KEY }}
           script: |
             bash /home/felipeg/api/start_api.sh
