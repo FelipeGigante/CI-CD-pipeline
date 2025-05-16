@@ -1,0 +1,20 @@
+name: Deploy para VM
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Acessar a VM e rodar o script
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: felipeg
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            bash /home/felipeg/api/start_api.sh
